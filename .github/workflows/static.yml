@@ -1,43 +1,58 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy Vite Static Content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Se ejecuta cuando haces push a la rama principal (main)
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Permite ejecutar este flujo de trabajo manualmente desde la pestaña Actions
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Otorga permisos necesarios para el despliegue
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Permite solo un despliegue concurrente
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  # El trabajo principal: construir (build) y desplegar
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 1. Checkout (Obtener el código)
         uses: actions/checkout@v4
-      - name: Setup Pages
+
+      - name: 2. Setup Node.js (Configurar entorno)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Puedes usar '18', '20', o el que necesites
+
+      - name: 3. Install dependencies (Instalar dependencias)
+        # Asume que estás usando npm. Si usas yarn, cambia 'npm install' por 'yarn'
+        run: npm install 
+
+      - name: 4. Build Project (Construir el sitio con Vite)
+        # Esto genera la carpeta 'dist'
+        run: npm run build 
+
+      - name: 5. Setup Pages (Configuración de GitHub Pages)
         uses: actions/configure-pages@v5
-      - name: Upload artifact
+
+      - name: 6. Upload artifact (Subir la carpeta de producción)
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
+          # ¡IMPORTANTE! Aquí se especifica la carpeta 'dist' generada por Vite
+          path: './dist' 
+
+      - name: 7. Deploy to GitHub Pages (Desplegar)
         id: deployment
         uses: actions/deploy-pages@v4
