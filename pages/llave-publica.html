@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi llave pública</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Iconos (Lucide) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Tus estilos globales -->
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+
+<body class="min-h-screen bg-neutral-100 text-neutral-900 antialiased font-[Poppins]">
+  <main class="container mx-auto px-5 py-8 md:py-12">
+    <!-- Topbar -->
+    <header class="flex items-center justify-between">
+      <a href="/index.html" class="btn-ghost">
+        <span data-lucide="arrow-left" class="w-4 h-4"></span>
+        Inicio
+      </a>
+      <span class="text-sm text-neutral-600">Sección • Llave pública</span>
+    </header>
+
+    <!-- Fondo -->
+    <div class="lp-bg fixed inset-0 -z-10"></div>
+    <div class="lp-vignette fixed inset-0 -z-10"></div>
+
+
+    <!-- Tarjeta principal -->
+    <section class="mt-6 grid place-items-center">
+      <div class="lp-card-static w-full max-w-5xl">
+        <!-- Encabezado -->
+        <div class="p-6 sm:p-8 md:p-10 grid md:grid-cols-2 gap-8 items-center">
+          <!-- Ilustración: engranes estáticos -->
+          <div class="flex items-center justify-center">
+            <svg class="gears-static" viewBox="0 0 420 260" width="100%" height="100%" aria-hidden="true">
+              <defs>
+                <linearGradient id="steelStatic" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%"  stop-color="#e5e7eb"/>
+                  <stop offset="50%" stop-color="#cbd5e1"/>
+                  <stop offset="100%" stop-color="#9ca3af"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Gear grande -->
+              <g transform="translate(135,145)">
+                <circle r="58" fill="url(#steelStatic)" stroke="#111827" stroke-width="3"/>
+                <g fill="url(#steelStatic)" stroke="#111827" stroke-width="3">
+                  <rect x="-8" y="-92" width="16" height="22" rx="3"/>
+                  <rect x="-8" y="70"  width="16" height="22" rx="3"/>
+                  <rect x="-92" y="-8" width="22" height="16" rx="3"/>
+                  <rect x="70"  y="-8" width="22" height="16" rx="3"/>
+                  <rect transform="rotate(45)" x="-8" y="-92" width="16" height="22" rx="3"/>
+                  <rect transform="rotate(45)" x="-8" y="70"  width="16" height="22" rx="3"/>
+                  <rect transform="rotate(45)" x="-92" y="-8" width="22" height="16" rx="3"/>
+                  <rect transform="rotate(45)" x="70"  y="-8" width="22" height="16" rx="3"/>
+                </g>
+                <circle r="18" fill="#111827" opacity=".25"/>
+              </g>
+
+              <!-- Gear mediana -->
+              <g transform="translate(248,188)">
+                <circle r="40" fill="url(#steelStatic)" stroke="#111827" stroke-width="3"/>
+                <g fill="url(#steelStatic)" stroke="#111827" stroke-width="3">
+                  <rect x="-6" y="-64" width="12" height="18" rx="3"/>
+                  <rect x="-6" y="46"  width="12" height="18" rx="3"/>
+                  <rect x="-64" y="-6" width="18" height="12" rx="3"/>
+                  <rect x="46"  y="-6" width="18" height="12" rx="3"/>
+                  <rect transform="rotate(45)" x="-6" y="-64" width="12" height="18" rx="3"/>
+                  <rect transform="rotate(45)" x="-6" y="46"  width="12" height="18" rx="3"/>
+                  <rect transform="rotate(45)" x="-64" y="-6" width="18" height="12" rx="3"/>
+                  <rect transform="rotate(45)" x="46"  y="-6" width="18" height="12" rx="3"/>
+                </g>
+                <circle r="12" fill="#111827" opacity=".25"/>
+              </g>
+
+              <!-- Gear pequeña -->
+              <g transform="translate(312,112)">
+                <circle r="26" fill="url(#steelStatic)" stroke="#111827" stroke-width="3"/>
+                <g fill="url(#steelStatic)" stroke="#111827" stroke-width="3">
+                  <rect x="-4" y="-42" width="8" height="12" rx="2"/>
+                  <rect x="-4" y="30"  width="8" height="12" rx="2"/>
+                  <rect x="-42" y="-4" width="12" height="8" rx="2"/>
+                  <rect x="30"  y="-4" width="12" height="8" rx="2"/>
+                </g>
+                <circle r="8" fill="#111827" opacity=".25"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Contenido -->
+          <div class="text-center md:text-left">
+            <h1 class="lp-title-static">Llave pública</h1>
+            <p class="lp-subtitle-static">
+              La llave pública se generará en la práctica de <strong>RSA</strong> próximamente.
+            </p>
+
+            <div class="mt-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+              <a id="publicKeyLink" href="#" class="lp-link-static inline-flex items-center gap-2" aria-disabled="true">
+                <span data-lucide="key" class="w-4 h-4 text-[#F4C31F]"></span>
+                Futura llave pública
+                <span class="lp-badge-static">Próximamente</span>
+              </a>
+
+              <button id="copyKeyBtn" class="lp-copy-static" title="Copiar enlace">
+                <span data-lucide="clipboard" class="w-4 h-4"></span>
+                Copiar
+              </button>
+
+              <span id="copyToast" class="lp-toast-static hidden">Copiado al Portapapeles</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Franja inferior (estática) -->
+        <div class="lp-stripe-static" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) window.lucide.createIcons();
+
+      const link  = document.getElementById("publicKeyLink");
+      const copy  = document.getElementById("copyKeyBtn");
+      const toast = document.getElementById("copyToast");
+
+      copy.addEventListener("click", () => {
+        const url = (link?.textContent || "").trim();
+        if (!url) return;
+        navigator.clipboard.writeText(url).then(() => {
+          toast.classList.remove("hidden");
+          setTimeout(() => toast.classList.add("hidden"), 1400);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

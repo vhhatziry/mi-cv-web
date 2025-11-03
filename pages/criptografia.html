@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-neutral-100">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acerca de la Criptografía – Whitfield Diffie</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos (Lucide) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <link rel="stylesheet" href="/src/css/main.css" />
+
+</head>
+
+<body class="text-neutral-900 antialiased bg-neutral-50">
+  <!-- Fondo animado tipo periódico -->
+  <div class="paper-anim"></div>
+  <div class="paper-vignette"></div>
+
+  <!-- Topbar -->
+  <header class="container mx-auto px-5 pt-4 pb-3 flex items-center justify-between">
+    <a href="/index.html" class="btn-ghost">
+      <span data-lucide="arrow-left" class="w-4 h-4"></span>
+      Inicio
+    </a>
+    <div class="text-sm text-neutral-600">Acerca de la Criptografía</div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container mx-auto px-5 pb-10 hero-wrap">
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-stretch">
+
+      <!-- FOTO + CINTA -->
+      <aside class="lg:col-span-5 relative">
+        <div class="bio-photo">
+          <!-- Reemplaza por tu imagen -->
+          <img src="/public/diffie.jpeg" alt="Whitfield Diffie" class="w-full h-full object-cover" />
+        </div>
+        <div class="ribbon">Criptografía</div>
+      </aside>
+
+      <!-- PANEL BIO + BIBLIO -->
+      <article class="lg:col-span-7">
+        <div class="bio-panel">
+          <!-- NOMBRE (con trazo) + rol -->
+          <h1 class="bio-name">Whitfield “Whit” Diffie</h1>
+          <div class="bio-role">Pionero de la criptografía de clave pública • Investigador y defensor de la privacidad</div>
+
+          <!-- Chips de contexto -->
+          <div class="chips">
+            <span class="chip">Clave pública</span>
+            <span class="chip">Intercambio de claves</span>
+            <span class="chip">Privacidad digital</span>
+            <span class="chip">Criptografía moderna</span>
+          </div>
+
+          <!-- Resumen biográfico (5–7 líneas) -->
+          <p class="bio-desc">
+            Whitfield Diffie (Washington, D.C., 1944) es uno de los padres de la criptografía moderna. En 1976,
+            junto con Martin E. Hellman, publicó “New Directions in Cryptography”, trabajo que introdujo el
+            <em>intercambio de claves Diffie–Hellman</em> y sentó las bases de la criptografía de clave pública.
+            Su visión cambió el paradigma: de esquemas que requerían canales seguros para compartir secretos,
+            a sistemas escalables para redes abiertas como Internet. Además de su contribución técnica,
+            Diffie ha sido una voz activa en debates sobre privacidad, políticas criptográficas y protección de
+            comunicaciones electrónicas, con impacto directo en comercio electrónico y seguridad en la web.
+          </p>
+
+          <!-- Aportes destacados -->
+          <h2 class="bio-subtitle">Contribuciones destacadas</h2>
+          <ul class="list-disc pl-6 text-neutral-800 space-y-1">
+            <li>Cambio de paradigma: de intercambio secreto de claves a criptografía asimétrica escalable.</li>
+            <li>Co-autor del intercambio de claves Diffie–Hellman (1976), base de protocolos modernos.</li>
+            <li>Divulgación y liderazgo en políticas de criptografía y privacidad de comunicaciones.</li>
+          </ul>
+
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hobbies – Hatziry Vitales Herrera</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+
+<body class="text-neutral-900 antialiased font-[Poppins] vh-wrap">
+  <!-- Fondo animado -->
+  <div id="bg-anim" class="fixed inset-0 -z-10"></div>
+  <div class="fixed inset-0 -z-10 bg-gradient-to-br from-emerald-50/70 via-emerald-100/50 to-emerald-200/40"></div>
+
+  <!-- Barra superior (compacta) -->
+  <header class="container mx-auto px-5 topbar-compact flex items-center justify-between">
+    <a href="/index.html" class="inline-flex items-center gap-2 text-[var(--ipn)] hover:text-[var(--ipn-dark)] transition">
+      <span data-lucide="arrow-left" class="w-5 h-5"></span>
+      Inicio
+    </a>
+
+    <a href="https://instagram.com/crochat0" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-2 text-[var(--ipn)] hover:text-[var(--ipn-dark)] transition">
+      <span data-lucide="instagram" class="w-5 h-5"></span> @crochat0
+    </a>
+  </header>
+
+  <!-- Grid divertido (compacto, 2 filas exactas) -->
+  <main class="container mx-auto px-5">
+    <div class="mosaic-grid compact">
+      <!-- CROCHET -->
+      <article class="card card-green card--crochet">
+        <div class="card-head">
+          <span class="pill pill-emerald"><span data-lucide="yarn" class="w-4 h-4"></span> Crochet</span>
+          <a class="pill pill-outline" href="https://instagram.com/crochat0" target="_blank" rel="noopener">
+            <span data-lucide="instagram" class="w-4 h-4"></span> @crochat0
+          </a>
+        </div>
+        <p class="card-text">
+          Tejo amigurumis y accesorios, juego con paletas de color y texturas. Documentar el proceso me ayuda a mejorar.
+        </p>
+        <div class="thumbs">
+          <div class="thumb">pieza 1</div>
+          <div class="thumb">pieza 2</div>
+          <div class="thumb">pieza 3</div>
+        </div>
+        <div class="chips">
+          <span class="chip">Amigurumi</span>
+          <span class="chip">Accesorios</span>
+          <span class="chip">Paletas de color</span>
+        </div>
+      </article>
+
+      <!-- MÚSICA -->
+      <article class="card card-gold card--musica">
+        <div class="card-head">
+          <span class="pill pill-gold"><span data-lucide="waveform" class="w-4 h-4"></span> Música</span>
+        </div>
+        <p class="card-text">
+          Escucho descomponiendo capas: ritmo, bajo, armonías y mezcla. Me fijo en dinámica y timbre para entender el arreglo.
+        </p>
+        <!-- Top 3 Música -->
+        <ol class="mini-podium">
+        <li class="rank-1">
+            <span class="rank-badge gold">1</span>
+            <div>
+            <div>
+                <strong>Run</strong> – Joji
+                <span class="rank-crown"><span data-lucide="crown" class="w-3.5 h-3.5 text-white"></span></span>
+            </div>
+            <div class="subtitle">Voz etérea, guitarras y espacio en mezcla</div>
+            </div>
+        </li>
+        <li>
+            <span class="rank-badge">2</span>
+            <div>
+            <div><strong>Genesis</strong> – Grimes</div>
+            <div class="subtitle">Texturas sintetizadas y atmósfera dream-pop</div>
+            </div>
+        </li>
+        <li>
+            <span class="rank-badge">3</span>
+            <div>
+            <div><strong>Back on 74</strong> – Jungle</div>
+            <div class="subtitle">Groove funk, coros pegajosos y producción cálida</div>
+            </div>
+        </li>
+        </ol>
+      </article>
+
+      <!-- VIDEOJUEGOS -->
+      <article class="card card-navy card--juegos">
+        <div class="card-head">
+          <span class="pill pill-navy"><span data-lucide="gamepad-2" class="w-4 h-4"></span> Videojuegos</span>
+        </div>
+        <p class="card-text">
+          Juego por exploración y narrativa. Observo diseño de niveles, música interactiva y cómo la jugabilidad refuerza la historia.
+        </p>
+        <!-- Top 3 Videojuegos -->
+        <ol class="mini-podium">
+        <li class="rank-1">
+            <span class="rank-badge gold">1</span>
+            <div>
+            <div>
+                <strong>Hollow Knight</strong>
+                <span class="rank-crown"><span data-lucide="crown" class="w-3.5 h-3.5 text-white"></span></span>
+            </div>
+            <div class="subtitle">Atmósfera, mapa interconectado y música</div>
+            </div>
+        </li>
+        <li>
+            <span class="rank-badge">2</span>
+            <div>
+            <div><strong>Little Nightmares</strong></div>
+            <div class="subtitle">Diseño ambiental y tensión constante</div>
+            </div>
+        </li>
+        <li>
+            <span class="rank-badge">3</span>
+            <div>
+            <div><strong>Five Nights at Freddy's 2</strong></div>
+            <div class="subtitle">Ritmo de supervivencia y “sound cues”</div>
+            </div>
+        </li>
+        </ol>
+      </article>
+
+      <!-- PELÍCULAS -->
+      <article class="card card-rose card--cine">
+        <div class="card-head">
+          <span class="pill pill-rose"><span data-lucide="film" class="w-4 h-4"></span> Películas</span>
+        </div>
+        <p class="card-text">
+          Veo cine de todo tipo: clásicos, animación, experimental. Analizo fotografía,
+          montaje, banda sonora y dirección.
+        </p>
+        <ol class="mini-podium">
+          <li class="rank-1">
+            <span class="rank-badge gold">1</span>
+            <div>
+              <div>
+                <strong>Interestellar</strong> (2014)
+                <span class="rank-crown"><span data-lucide="crown" class="w-3.5 h-3.5 text-white"></span></span>
+              </div>
+              <div class="subtitle">Fotografía y banda sonora</div>
+            </div>
+          </li>
+          <li>
+            <span class="rank-badge">2</span>
+            <div>
+              <div><strong>Spirited Away</strong> (2001)</div>
+              <div class="subtitle">Animación y construcción de mundo</div>
+            </div>
+          </li>
+          <li>
+            <span class="rank-badge">3</span>
+            <div>
+              <div><strong>Everything Everywhere All at Once</strong> (2022)</div>
+              <div class="subtitle">Edición, mensja y emoción multiversal</div>
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- EXTRA -->
+      <article class="card card-mint card--extra">
+        <div class="card-head">
+          <span class="pill pill-emerald"><span data-lucide="headphones" class="w-4 h-4"></span> Mientras tejo</span>
+        </div>
+        <p class="card-text">
+          Me gusta combinar <br> series, peliculas  playlists e instrumentales con sesiones <br> de crochet largas, <br>¡fluye mejor la creatividad!
+        </p>
+      </article>
+
+      <article class="card card-title card-title--cafe card--title">
+         <div>
+            <h1 class="big-outline-title">Mis Hobbies</h1>
+            <p class="subtitle-sticker">Crochet, música, videojuegos y cine</p>
+        </div>
+      </article>
+
+
+    </div>
+  </main>
+
+  <!-- Scripts: íconos + Vanta CELLS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://unpkg.com/vanta/dist/vanta.cells.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) window.lucide.createIcons();
+
+      if (window.VANTA && VANTA.CELLS) {
+        VANTA.CELLS({
+          el: "#bg-anim",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color1: 0x2F9465,   // verde central
+          color2: 0x7A003C,   // guinda IPN
+          size: 1.15,         // un poco más compacto visualmente
+          speed: 0.85
+        });
+      }
+    });
+  </script>
+</body>
+</html>
