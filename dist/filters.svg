@@ -1,0 +1,15 @@
+<!-- /public/filters.svg -->
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="lava">
+    <feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="7" result="noise">
+      <animate attributeName="baseFrequency" values="0.005;0.010;0.006;0.005" dur="22s" repeatCount="indefinite"/>
+      <animate attributeName="seed" values="5;7;9;5" dur="30s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="28" xChannelSelector="R" yChannelSelector="G">
+      <animate attributeName="scale" values="22;34;26;22" dur="18s" repeatCount="indefinite"/>
+    </feDisplacementMap>
+    <feColorMatrix type="hueRotate" values="0">
+      <animate attributeName="values" values="0;8;0" dur="40s" repeatCount="indefinite"/>
+    </feColorMatrix>
+  </filter>
+</svg>
