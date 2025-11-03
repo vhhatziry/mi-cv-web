@@ -34,15 +34,20 @@ jobs:
       - name: 2. Setup Node.js (Configurar entorno)
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Puedes usar '18', '20', o el que necesites
+          node-version: '20' # Asegúrate que esta versión coincida con tu entorno
 
       - name: 3. Install dependencies (Instalar dependencias)
-        # Asume que estás usando npm. Si usas yarn, cambia 'npm install' por 'yarn'
         run: npm install 
 
       - name: 4. Build Project (Construir el sitio con Vite)
-        # Esto genera la carpeta 'dist'
         run: npm run build 
+
+      # === 4.5. PASO CORREGIDO PARA ENRUTAMIENTO (NUEVO) ===
+      - name: 4.5. Create 404.html for multipage routing fix
+        # Esto copia el index.html generado por Vite (en dist) y lo renombra como 404.html.
+        # Esto soluciona los problemas de navegación en subrutas de GH Pages.
+        run: cp ./dist/index.html ./dist/404.html
+      # ====================================================
 
       - name: 5. Setup Pages (Configuración de GitHub Pages)
         uses: actions/configure-pages@v5
@@ -50,7 +55,7 @@ jobs:
       - name: 6. Upload artifact (Subir la carpeta de producción)
         uses: actions/upload-pages-artifact@v3
         with:
-          # ¡IMPORTANTE! Aquí se especifica la carpeta 'dist' generada por Vite
+          # Aquí se sube toda la carpeta 'dist', que ahora incluye el 404.html
           path: './dist' 
 
       - name: 7. Deploy to GitHub Pages (Desplegar)
