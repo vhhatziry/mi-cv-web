@@ -4,14 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mi llave pública</title>
-
-  <!-- Tailwind (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Iconos (Lucide) -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-  <!-- Tus estilos globales -->
   <link rel="stylesheet" href="../src/css/main.css" />
 </head>
 
@@ -29,7 +21,6 @@
     <!-- Fondo -->
     <div class="lp-bg fixed inset-0 -z-10"></div>
     <div class="lp-vignette fixed inset-0 -z-10"></div>
-
 
     <!-- Tarjeta principal -->
     <section class="mt-6 grid place-items-center">
@@ -103,8 +94,7 @@
             <div class="mt-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
               <a id="publicKeyLink" href="#" class="lp-link-static inline-flex items-center gap-2" aria-disabled="true">
                 <span data-lucide="key" class="w-4 h-4 text-[#F4C31F]"></span>
-                Futura llave pública
-                <span class="lp-badge-static">Próximamente</span>
+                <span class="lp-badge-static">Mi llave pública</span>
               </a>
 
               <button id="copyKeyBtn" class="lp-copy-static" title="Copiar enlace">
@@ -112,7 +102,24 @@
                 Copiar
               </button>
 
-              <span id="copyToast" class="lp-toast-static hidden">Copiado al Portapapeles</span>
+              <span id="copyToast" class="lp-toast-static hidden inline-flex items-center gap-1">
+                Copiado!
+                <span data-lucide="smile" class="w-4 h-4"></span>
+              </span>
+
+              <span id="copyPayload" class="hidden" style="white-space:pre" aria-hidden="true">
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoan/hlYMPVyHuynEod7F
+9zIERUPhOuoD3ka6PrVhu4t3LSinO2wiFNHLNBUiwcrcrIrJFaJXWFSYBGg3CfQn
+TN78cGKMNep76LfJOskcaCPp6Yo0T3xd20oxipxrGpAiBFP9MA2HzCnImGalg/zI
+HDximKOgJuH9JzIs5+83QS/zgRpsMf1KS3U2oGT9clymEH3y4P2em9aCsJmebHJT
+4IqXGeuWuuKiUNO4kUITrofQFWPeXgh8iC8SwBXyo9H78nHL8pCyoHG1AprU8Ekp
+xRKEfsCpK1rTtsmF0PV/kI1810LD7FWC4hXWtHY35vIynZhWZAW0XLZ9NyfWtoSA
+qwIDAQAB
+-----END PUBLIC KEY-----
+
+              </span>
+              <!-- ======================================= -->
             </div>
 
           </div>
@@ -124,18 +131,41 @@
     </section>
   </main>
 
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Iconos (Lucide) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide) window.lucide.createIcons();
 
-      const link  = document.getElementById("publicKeyLink");
-      const copy  = document.getElementById("copyKeyBtn");
-      const toast = document.getElementById("copyToast");
+      const copy   = document.getElementById("copyKeyBtn");
+      const toast  = document.getElementById("copyToast");
+      const hidden = document.getElementById("copyPayload");
 
       copy.addEventListener("click", () => {
-        const url = (link?.textContent || "").trim();
-        if (!url) return;
-        navigator.clipboard.writeText(url).then(() => {
+        // Lee el texto desde el span oculto (preserva saltos de línea)
+        const text = hidden ? hidden.textContent.trim() : "";
+
+        if (!text) return;
+
+        // Intento moderno (HTTPS)
+        navigator.clipboard.writeText(text).then(() => {
+          toast.classList.remove("hidden");
+          setTimeout(() => toast.classList.add("hidden"), 1400);
+        }).catch(() => {
+          // Fallback para contextos no seguros / navegadores viejos
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "absolute";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(ta);
           toast.classList.remove("hidden");
           setTimeout(() => toast.classList.add("hidden"), 1400);
         });
